@@ -4,16 +4,17 @@ import java.util.Properties
 
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
+import org.slf4j.{Logger, LoggerFactory}
 
 /**
   * Created by daniel on 2020-04-15.
   **/
-object ScalaProducerDemo extends LazyLogging{
+object ScalaKerberosProducerDemo extends LazyLogging{
 
   def main(args: Array[String]): Unit = {
 
     // TODO: Print out line in log of authenticated user
-
+    val logger: Logger = LoggerFactory.getLogger(ScalaKerberosProducerDemo.getClass)
     System.setProperty("java.security.krb5.conf", "/Library/Preferences/edu.mit.Kerberos")
     System.setProperty("java.security.auth.login.config", "/Users/daniel/IdeaProjects/FrommyMind/BigdataDemoCode/src/main/resources/jaas.conf")
 

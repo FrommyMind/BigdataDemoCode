@@ -11,9 +11,9 @@ import java.util.Properties;
 /**
  * Created by daniel on 2020/4/29.
  **/
-public class JavaConsumerDemo {
+public class JavaKerberosConsumerDemo {
     public static void main(String[] args) {
-        Logger logger = LoggerFactory.getLogger(JavaConsumerDemo.class);
+        Logger logger = LoggerFactory.getLogger(JavaKerberosConsumerDemo.class);
         // TODO: Print out line in log of authenticated user
         System.setProperty("java.security.krb5.conf", "/Library/Preferences/edu.mit.Kerberos");
         System.setProperty("java.security.auth.login.config", "/Users/daniel/IdeaProjects/FrommyMind/BigdataDemoCode/src/main/resources/jaas.conf");

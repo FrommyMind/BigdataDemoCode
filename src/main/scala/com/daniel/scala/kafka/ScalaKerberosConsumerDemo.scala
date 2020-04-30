@@ -10,9 +10,9 @@ import org.slf4j.{Logger, LoggerFactory}
 /**
  * Created by daniel on 2020/4/30.
  **/
-object ScalaConsumerDemo {
+object ScalaKerberosConsumerDemo {
   def main(args: Array[String]): Unit = {
-    val logger: Logger = LoggerFactory.getLogger(classOf[JavaConsumerDemo])
+    val logger: Logger = LoggerFactory.getLogger(ScalaKerberosConsumerDemo.getClass)
     // TODO: Print out line in log of authenticated user
     System.setProperty("java.security.krb5.conf", "/Library/Preferences/edu.mit.Kerberos")
     System.setProperty("java.security.auth.login.config", "/Users/daniel/IdeaProjects/FrommyMind/BigdataDemoCode/src/main/resources/jaas.conf")
