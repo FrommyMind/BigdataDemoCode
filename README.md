@@ -18,8 +18,8 @@
 ### Flink
 
 ### Kafka
-1. Kafka生产者：[Java+Kerberos](https://raw.githubusercontent.com/FrommyMind/BigdataDemoCode/master/src/main/java/com/daniel/java/kafka/JavaProducerDemo.java)、[Scala+Kerberos](https://raw.githubusercontent.com/FrommyMind/BigdataDemoCode/master/src/main/scala/com/daniel/scala/kafka/ProducerDemo.scala)、Java、Scala
-
+1. Kafka生产者：[Java+Kerberos](https://github.com/FrommyMind/BigdataDemoCode/master/src/main/java/com/daniel/java/kafka/JavaProducerDemo.java)、[Scala+Kerberos](https://github.com/FrommyMind/BigdataDemoCode/master/src/main/scala/com/daniel/scala/kafka/ScalaProducerDemo.scala)、Java、Scala
+2. Kafka消费者：[Java+Kerberos](https://github.com/FrommyMind/BigdataDemoCode/blob/master/src/main/java/com/daniel/java/kafka/JavaConsumerDemo.java)、[Scala+Kerberos](https://github.com/FrommyMind/BigdataDemoCode/blob/master/src/main/scala/com/daniel/scala/kafka/ScalaConsumerDemo.scala)、Java、Scala
 ### HBase
 
 ### Hive

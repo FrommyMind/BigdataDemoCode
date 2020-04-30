@@ -8,7 +8,7 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, Produce
 /**
   * Created by daniel on 2020-04-15.
   **/
-object ProducerDemo extends LazyLogging{
+object ScalaProducerDemo extends LazyLogging{
 
   def main(args: Array[String]): Unit = {
 

@@ -30,7 +30,7 @@ object SparkHiveKerberosScalaDemo  {
     }
     val sparkSession: SparkSession = SparkSession
       .builder
-      // if there has no hive-site.xml, we need this config
+      // if there has no com.daniel.scala.hive-site.xml, we need this config
       //.config("spark.sql.warehouse.dir", warehouseLocation)
       .config(sparkConf)
       .config("hadoop.security.authentication", "kerberos")
