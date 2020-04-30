@@ -20,7 +20,7 @@ object SparkStreamingConsumerKafka {
   def main(args: Array[String]): Unit = {
     val sparkConf = new SparkConf()
     sparkConf.setAppName("SparkStreamingConsumerKafka")
-    //    sparkConf.setMaster("local[2]")
+        sparkConf.setMaster("local[2]")
     val sc: SparkContext = new SparkContext(sparkConf)
     //    sc.setLogLevel("DEBUG")
 
@@ -29,7 +29,8 @@ object SparkStreamingConsumerKafka {
     // login in
     UserGroupInformation.loginUserFromKeytab(principal, keyTab)
     val topics: Set[String] = Array("test1topic").toSet
-
+    System.setProperty("java.security.krb5.conf", "/Library/Preferences/edu.mit.Kerberos")
+    System.setProperty("java.security.auth.login.config", "/Users/daniel/IdeaProjects/FrommyMind/BigdataDemoCode/src/main/resources/jaas.conf")
     val random = new Random()
     val group:String = "consumer_group" + random.nextInt(10000)
     val kafkaParams:Map[String, Object]  = Map[String, Object](

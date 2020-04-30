@@ -34,9 +34,11 @@ public class JavaKerberosConsumerDemo {
         Consumer<String, String> consumer = new KafkaConsumer<String, String>(prop);
 
         consumer.subscribe(Collections.singleton(topic));
-        ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(1000));
-        for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
-            System.out.println("Received message: (" + consumerRecord.key() + ", " + consumerRecord.value() + ") at offset " + consumerRecord.offset());
+        while (true) {
+            ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(1000));
+            for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
+                System.out.println("Received message: (" + consumerRecord.key() + ", " + consumerRecord.value() + ") at offset " + consumerRecord.offset());
+            }
         }
     }
 }

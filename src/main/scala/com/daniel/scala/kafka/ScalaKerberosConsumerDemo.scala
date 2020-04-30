@@ -3,8 +3,7 @@ package com.daniel.scala.kafka
 import java.time.Duration
 import java.util.{Collections, Properties}
 
-import com.daniel.java.kafka.JavaConsumerDemo
-import org.apache.kafka.clients.consumer.{Consumer, ConsumerConfig, ConsumerRecords, KafkaConsumer}
+import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecords, KafkaConsumer}
 import org.slf4j.{Logger, LoggerFactory}
 
 /**
@@ -12,6 +11,7 @@ import org.slf4j.{Logger, LoggerFactory}
  **/
 object ScalaKerberosConsumerDemo {
   def main(args: Array[String]): Unit = {
+    import scala.collection.JavaConversions._
     val logger: Logger = LoggerFactory.getLogger(ScalaKerberosConsumerDemo.getClass)
     // TODO: Print out line in log of authenticated user
     System.setProperty("java.security.krb5.conf", "/Library/Preferences/edu.mit.Kerberos")
@@ -25,18 +25,22 @@ object ScalaKerberosConsumerDemo {
     prop.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer")
     prop.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "daniel")
     prop.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true")
-    prop.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+    prop.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest")
     prop.setProperty(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000")
     prop.put("security.protocol", "SASL_PLAINTEXT")
     prop.put("sasl.kerberos.service.name", "kafka")
     prop.put("sasl.mechanism", "GSSAPI")
     val consumer = new KafkaConsumer[String, String](prop)
-
+    
     consumer.subscribe(Collections.singleton(topic))
-    val consumerRecords: ConsumerRecords[String, String] = consumer.poll(Duration.ofSeconds(1000))
-    import scala.collection.JavaConversions._
-    for (consumerRecord <- consumerRecords) {
-      System.out.println("Received message: (" + consumerRecord.key + ", " + consumerRecord.value + ") at offset " + consumerRecord.offset)
+
+//    logger.info("Topics {} has {} partitions",topic , consumer.listTopics().);
+    while(true) {
+      val consumerRecords: ConsumerRecords[String, String] = consumer.poll(Duration.ofSeconds(1000))
+
+      for (consumerRecord <- consumerRecords) {
+        System.out.println("Received message: (" + consumerRecord.key + ", " + consumerRecord.value + ") at offset " + consumerRecord.offset)
+      }
     }
   }
 
