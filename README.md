@@ -13,11 +13,12 @@
 - JDK: 1.8.0_191
 - Scala: 2.11.12
 ### Spark
-1. Spark读取HDFS文件
-2. Spark写数据到HDFS上
+1. Spark读取HDFS文件: Java、Scala
+2. Spark写数据到HDFS上 ： Java 、Scala
 ### Flink
 
 ### Kafka
+1. Kafka生产者：[Java+Kerberos](https://raw.githubusercontent.com/FrommyMind/BigdataDemoCode/master/src/main/java/com/daniel/java/kafka/JavaProducerDemo.java)、[Scala+Kerberos](https://raw.githubusercontent.com/FrommyMind/BigdataDemoCode/master/src/main/scala/com/daniel/scala/kafka/ProducerDemo.scala)、Java、Scala
 
 ### HBase
 
